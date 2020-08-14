@@ -1,0 +1,11 @@
+<div class="gl">
+<div class="oglas-container" routerLink="/oglas/{{oglas.code}}">
+        <div class="name">{{oglas.ime + ' (' + oglas.code + ')'}}</div>
+        <div class="opis">{{oglas.opis}}</div>
+        <div class="cena">$ {{oglas.cena}}</div>
+</div>
+<div>
+        <button (click)="onToggleOmiljene($event)" *ngIf="!oglas.omiljen">Dodaj u omiljene</button>
+        <button (click)="onToggleOmiljene($event)" *ngIf="oglas.omiljen">Izbaci iz omiljenih</button>
+</div>
+</div>

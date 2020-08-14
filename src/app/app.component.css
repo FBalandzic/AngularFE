@@ -1,0 +1,12 @@
+.naslov{
+    text-align: center;
+}
+.links, .links a {
+    padding: 10px;
+    display: grid;
+  text-align: center;
+    }
+    .links a.active {
+    background-color: lightslategray;
+    }
+    

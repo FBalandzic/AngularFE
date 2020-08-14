@@ -1,0 +1,41 @@
+<div class="glava">
+    <h2>Napravi oglas forma</h2>
+</div>
+<div class="form-group">
+    <form (ngSubmit)="createOglas(oglasForm)" #oglasForm="ngForm">
+        <div class="oglas-ime">
+            <input type="text" placeholder="Oglas ime" required name="oglasIme" #oglasIme="ngModel"
+                [(ngModel)]="oglas.ime">
+        </div>
+        <div *ngIf="oglasIme.errors && oglasIme.errors.required">Ime oglasa je obavezno</div>
+        <div class="oglas-code">
+            <input type="text" placeholder="Oglas Code" required minlength="2" name="oglasCode" #oglasCode="ngModel"
+                [(ngModel)]="oglas.code">
+        </div>
+        <div *ngIf="oglasCode.dirty && oglasCode.invalid">
+            <div *ngIf="oglasCode.errors.required">Code oglasa je obavezan</div>
+            <div *ngIf="oglasCode.errors.minlength">Code oglasa mora biti najmanje duzine 2</div>
+        </div>
+        <div class="oglas-opis">
+            <input type="text" placeholder="Oglas opis" required name="oglasOpis" #oglasOpis="ngModel"
+                [(ngModel)]="oglas.opis">
+        </div>
+        <div *ngIf="oglasOpis.errors && oglasOpis.errors.required">Opis oglasa je obavezan</div>
+        <div class="oglas-cena">
+            <input type="number" placeholder="Oglas Cena" name="oglasCena" required #oglasCena="ngModel"
+                [ngModel]="oglas.cena" (ngModelChange)="setOglasCenu($event)">
+        </div>
+        <div *ngIf="oglasCena.dirty && oglasCena.invalid">
+            <div *ngIf="oglasCena.errors.required">Cena oglasa je obavezna</div>
+        </div>
+        <div class="oglas-confirm">
+            <input type="checkbox" name="oglasConfirm" required [(ngModel)]="confirmed">
+            Potvrdjujem da su gore informacije tacne!
+        </div>
+        <button type="submit">Create</button>
+    </form>
+</div>
+<div class="futer">
+    <h4>Ime oglasa je {{oglas | json}}</h4>
+    <h4>Informacije su potvrdjene: {{confirmed}}</h4>
+</div>

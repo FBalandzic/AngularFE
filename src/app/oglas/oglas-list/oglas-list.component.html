@@ -1,0 +1,9 @@
+<div class="heder">
+    <h2>
+        Pronadjeno je {{(oglasi$ | async)?.length}} oglasa!
+    </h2>
+</div>
+<div class="lista">
+    <app-oglas-item *ngFor="let oglas of oglasi$ | async" [oglas]="oglas">
+    </app-oglas-item>
+</div>
